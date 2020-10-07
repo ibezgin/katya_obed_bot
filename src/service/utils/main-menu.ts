@@ -13,11 +13,7 @@ export function getMainKeyboard(ctx: any) {
         m.inlineKeyboard(
             [
                 m.callbackButton("Установить время", "setting-time"),
-                m.callbackButton(
-                    "Сколько до напоминания?",
-                    JSON.stringify({ a: "accountSummary" }),
-                    false,
-                ),
+                m.callbackButton("Сколько до напоминания?", "hours-minutes"),
                 m.callbackButton(
                     "Че там по covid 19?",
                     JSON.stringify({ a: "accountSummary" }),

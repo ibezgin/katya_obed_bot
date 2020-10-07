@@ -8,6 +8,7 @@ import { getOrCreateConnection } from "./datasourse";
 import { addNewsBotUser } from "./datasourse/controller";
 import { notificationController } from "./service/controller/notification-controller";
 import { web } from "./web";
+import { settingHoursMinutes } from "./scene/hours-minutes";
 const session = require("telegraf/session");
 
 dotenv.config({ path: __dirname + "/../.env" });
@@ -25,7 +26,7 @@ const main = async () => {
 
     await registerHandlers(bot);
 
-    const stage = await new Stage([startScene, settingTime], {});
+    const stage = await new Stage([startScene, settingTime, settingHoursMinutes], {});
 
     stage.register(startScene);
 
@@ -36,6 +37,8 @@ const main = async () => {
     });
 
     stage.action("setting-time", ctx => ctx.scene.enter("setting-time"));
+
+    stage.action("hours-minutes", ctx => ctx.scene.enter("hours-minutes"));
 
     bot.use(session());
 
