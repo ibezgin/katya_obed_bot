@@ -7,6 +7,7 @@ import { settingTime } from "./scene/setting-time";
 import { getOrCreateConnection } from "./datasourse";
 import { addNewsBotUser } from "./datasourse/controller";
 import { notificationController } from "./service/controller/notification-controller";
+import { web } from "./web";
 const session = require("telegraf/session");
 
 dotenv.config({ path: __dirname + "/../.env" });
@@ -42,6 +43,7 @@ const main = async () => {
 
     bot.launch();
 
+    web(bot);
     // require("./web")(bot);
 };
 
