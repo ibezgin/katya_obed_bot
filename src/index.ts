@@ -41,6 +41,8 @@ const main = async () => {
     bot.use(stage.middleware());
 
     bot.launch();
+
+    // require("./web")(bot);
 };
 
 main();
