@@ -18,8 +18,7 @@ export const settingHoursMinutes = new WizardScene(
 
         let hours = Math.floor((different % 86400000) / 3600000);
         let minutes = Math.round(((different % 86400000) % 3600000) / 60000);
-        console.log(hours);
-        console.log(minutes);
+
         await ctx.replyWithHTML(
             `До оповещения осталось: <strong>${
                 hours < 0 ? (minutes == 0 ? hours + 24 : hours + 25) : hours
