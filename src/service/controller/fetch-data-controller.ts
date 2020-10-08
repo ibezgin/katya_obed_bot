@@ -1,8 +1,5 @@
 import { getAllUsers } from "../../datasourse/controller";
 
-export const fetchDataController = ctx => {
-    return getAllUsers().then(value => {
-        ctx.session.allUsers = value;
-        return value;
-    });
+export const fetchDataController = async ctx => {
+    return await getAllUsers();
 };

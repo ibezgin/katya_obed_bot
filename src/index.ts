@@ -23,17 +23,23 @@ const main = async () => {
     getOrCreateConnection();
 
     const bot = new Telegraf<BotContext>(process.env.BOT_TOKEN as any);
+    web(bot);
+    bot.on("callback_query");
 
     await registerHandlers(bot);
 
-    const stage = await new Stage([startScene, settingTime, settingHoursMinutes], {});
+    const stage = await new Stage(
+        [startScene, settingTime, settingHoursMinutes],
+        {},
+    );
 
     stage.register(startScene);
+
+    notificationController(bot.context);
 
     stage.start(ctx => {
         addNewsBotUser(ctx);
         ctx.scene.enter("start-scene");
-        notificationController(ctx);
     });
 
     stage.action("setting-time", ctx => ctx.scene.enter("setting-time"));
@@ -46,7 +52,6 @@ const main = async () => {
 
     bot.launch();
 
-    web(bot);
     // require("./web")(bot);
 };
 
