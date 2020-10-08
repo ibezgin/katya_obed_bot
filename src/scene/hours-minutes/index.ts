@@ -24,8 +24,8 @@ export const settingHoursMinutes = new WizardScene(
         console.log(moment().format("HH:mm"));
         await ctx.replyWithHTML(
             `До оповещения осталось: <strong>${
-                hours < 0 ? (minutes == 0 ? hours + 24 : hours + 25) : hours
-            } часов ${minutes < 0 ? minutes + 80 : minutes} минут </strong>`,
+                hours < 0 ? hours + 24 : hours
+            } часов ${minutes < 0 ? minutes + 60 : minutes} минут </strong>`,
             Markup.inlineKeyboard(
                 [Markup.callbackButton("➡️ Next", "next")],
                 {},
