@@ -8,5 +8,5 @@ export async function registerMainMenu(bot: Telegraf<TelegrafContext>) {
 }
 
 async function printHelpCommand(ctx: TelegrafContext) {
-    ctx.reply(mainMenuHelper(ctx));
+    ctx.reply(await mainMenuHelper(ctx));
 }
