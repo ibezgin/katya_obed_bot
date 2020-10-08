@@ -10,7 +10,7 @@ export const settingHoursMinutes = new WizardScene(
         const currentTime = moment().format("HH:mm");
 
         const feautureTime = moment(
-            `${process.env.ALARM_HOUR}${process.env.ALARM_MINUTES}`,
+            `${process.env.ALARM_HOUR}${process.env.ALARM_MINUTE}`,
             "HHmm",
         ).format("HH:mm");
 
