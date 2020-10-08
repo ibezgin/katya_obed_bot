@@ -8,11 +8,11 @@ const Scene = require("telegraf/scenes/base");
 
 export const covid = new Scene("covid");
 
-covid.enter(ctx => {
-    ctx.reply("Информация по covid-19");
-    ctx.reply("Введите страну (english)");
+covid.enter(async ctx => {
+    await ctx.reply("Информация по covid-19");
+    await ctx.reply("Введите страну (english)");
 });
-covid.on("message", ctx => {
+covid.on("message", async ctx => {
     const date = new Date();
 
     date.setDate(date.getDate() - 1);
