@@ -1,15 +1,15 @@
 import { Markup, Extra } from "telegraf";
 
-export const mainMenuHelper = async ctx => {
+export const mainMenuHelper = ctx => {
     ctx.scene.leave();
-    return await ctx.replyWithHTML(
+    return ctx.replyWithHTML(
         `<strong>Главное меню</strong>`,
         getMainKeyboard(ctx),
     );
 };
 
-export async function getMainKeyboard(ctx: any) {
-    return await Extra.HTML().markup((m: Markup) =>
+export function getMainKeyboard(ctx: any) {
+    return Extra.HTML().markup((m: Markup) =>
         m.inlineKeyboard(
             [
                 m.callbackButton("Установить время", "setting-time"),
