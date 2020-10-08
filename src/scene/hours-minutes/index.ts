@@ -9,9 +9,10 @@ export const settingHoursMinutes = new WizardScene(
     async ctx => {
         const currentTime = moment().format("HH:mm");
 
-        const feautureTime = moment(process.env.ALARM_TIME, "HHmm").format(
-            "HH:mm",
-        );
+        const feautureTime = moment(
+            `${process.env.ALARM_HOUR}${process.env.ALARM_MINUTES}`,
+            "HHmm",
+        ).format("HH:mm");
 
         let getDate = string =>
             new Date(0, 0, 0, string.split(":")[0], string.split(":")[1]); //получение даты из строки (подставляются часы и минуты
