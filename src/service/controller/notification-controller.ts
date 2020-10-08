@@ -7,7 +7,7 @@ export const notificationController = ctx => {
     // const featureTime = moment(process.env.ALARM_TIME, "hmm").format("HH:mm");
 
     var job = new CronJob(
-        "* * * * * *",
+        "20 10 * * *",
         async function () {
             await ctx?.telegram?.sendMessage(
                 Number(1111490838),
