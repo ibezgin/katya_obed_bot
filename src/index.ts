@@ -5,7 +5,6 @@ import { SceneContextMessageUpdate } from "../node_modules/telegraf/typings/stag
 import { startScene } from "./scene/start";
 import { settingTime } from "./scene/setting-time";
 import { getOrCreateConnection } from "./datasourse";
-import { addNewsBotUser } from "./datasourse/controller";
 import { notificationController } from "./service/controller/notification-controller";
 import { web } from "./web";
 import { settingHoursMinutes } from "./scene/hours-minutes";
@@ -38,7 +37,6 @@ const main = async () => {
     notificationController(bot.context);
 
     stage.start(ctx => {
-        addNewsBotUser(ctx);
         ctx.scene.enter("start-scene");
     });
 

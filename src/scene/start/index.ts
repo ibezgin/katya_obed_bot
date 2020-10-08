@@ -3,6 +3,7 @@ import { Markup } from "telegraf";
 import fs from "fs";
 import { mainMenuHelper } from "../../service/utils/main-menu";
 import { notificationController } from "../../service/controller/notification-controller";
+import { addNewsBotUser } from "../../datasourse/controller";
 // import { getMainKeyboard } from "../../service/utils/get-main-keyboard";
 
 const WizardScene = require("telegraf/scenes/wizard");
@@ -20,6 +21,8 @@ export const startScene = new WizardScene(
         return ctx.wizard.next();
     },
     async ctx => {
+        await addNewsBotUser(ctx);
+
         notificationController(ctx);
         await ctx.replyWithPhoto({
             source: fs.createReadStream("./src/assets/kate2.jpg"),
@@ -31,6 +34,7 @@ export const startScene = new WizardScene(
                 {},
             ).extra(),
         );
+
         return ctx.wizard.next();
     },
     mainMenuHelper,
